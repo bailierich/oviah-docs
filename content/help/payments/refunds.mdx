@@ -1,0 +1,58 @@
+---
+title: Refunds and disputes
+description: How to handle refunds, cancellations, and payment disputes in OVIAH.
+category: Payments
+slug: refunds
+readTime: 3 min read
+updatedAt: March 2026
+relatedArticles:
+  - category: payments
+    slug: connecting-oviah-pay
+    title: Connecting OVIAH Pay
+  - category: bookings
+    slug: no-show-protection
+    title: No-show protection
+---
+
+<div className="content-section">
+<h2 className="section-heading">How refunds work</h2>
+<p className="body-text">Because OVIAH connects directly to your Stripe or Square account via OAuth, refunds are processed through your payment provider's dashboard — not through OVIAH itself. This gives you full control over when and how much to refund.</p>
+<div className="steps">
+
+<div className="step">
+<div className="step-num">1</div>
+<div>
+<div className="step-title">Find the transaction</div>
+<div className="step-desc">In your OVIAH dashboard, open the booking and note the payment details. You can also find the transaction in the <strong>Reports</strong> tab.</div>
+</div>
+</div>
+
+<div className="step">
+<div className="step-num">2</div>
+<div>
+<div className="step-title">Process the refund</div>
+<div className="step-desc">Log into your <strong>Stripe Dashboard</strong> or <strong>Square Dashboard</strong> and locate the payment. Issue a full or partial refund from there. Refunds typically appear in the client's account within 5–10 business days.</div>
+</div>
+</div>
+
+<div className="step">
+<div className="step-num">3</div>
+<div>
+<div className="step-title">Update the booking</div>
+<div className="step-desc">Back in OVIAH, update the booking's payment status to <strong>Refunded</strong> so your records stay accurate. If you cancelled the appointment, mark it as cancelled as well.</div>
+</div>
+</div>
+
+</div>
+
+<div className="tip-box">
+<div className="tip-icon">Tip</div>
+<div className="tip-text">Set clear cancellation policies and display them on your booking page. OVIAH lets you configure policies under <strong>Business Settings</strong> — clients see these before confirming a booking, which reduces disputes down the line.</div>
+</div>
+</div>
+
+<div className="content-section">
+<h2 className="section-heading">Handling disputes</h2>
+<p className="body-text">If a client files a dispute (chargeback) with their bank, the process is handled through Stripe or Square's dispute resolution system. Both providers notify you by email and give you a window to submit evidence — like booking confirmation emails, your cancellation policy, or communication with the client.</p>
+<p className="body-text">OVIAH stores full booking history and payment metadata, which can be useful when compiling your dispute response. Having clear policies and requiring deposits significantly reduces the likelihood of disputes in the first place.</p>
+</div>

@@ -1,0 +1,69 @@
+---
+title: Privacy and security
+description: How OVIAH protects your data, your clients' data, and your payments.
+category: Account
+slug: privacy-and-security
+readTime: 3 min read
+updatedAt: March 2026
+relatedArticles:
+  - category: payments
+    slug: connecting-oviah-pay
+    title: Connecting OVIAH Pay
+  - category: clients
+    slug: client-profiles
+    title: Client profiles overview
+---
+
+<div className="content-section">
+<h2 className="section-heading">Payment security</h2>
+<p className="body-text">OVIAH never stores your credit card numbers or your clients' payment details. All payment processing is handled through <strong>Stripe</strong> or <strong>Square</strong> via secure OAuth connections. When you connect your account, you authorize OVIAH through the provider's own login flow — your credentials are never shared with us.</p>
+<p className="body-text">Payment links are unique, token-based, and expire after 7 days. They can only be used once and are tied to a specific booking.</p>
+</div>
+
+<div className="content-section">
+<h2 className="section-heading">Client data</h2>
+<p className="body-text">Client profiles are stored securely and scoped to your account — no other business on OVIAH can see your clients. You control what data you collect and how it's used.</p>
+<div className="steps">
+
+<div className="step">
+<div className="step-num">•</div>
+<div>
+<div className="step-title">Communication preferences</div>
+<div className="step-desc">Clients can set their preference to email, SMS, both, or none. OVIAH respects these settings automatically when sending reminders and follow-ups.</div>
+</div>
+</div>
+
+<div className="step">
+<div className="step-num">•</div>
+<div>
+<div className="step-title">Cycle data</div>
+<div className="step-desc">Cycle-aware booking is fully <strong>opt-in</strong>. Clients must explicitly consent before any cycle data is collected. This data is used only for appointment timing suggestions and is never shared externally.</div>
+</div>
+</div>
+
+<div className="step">
+<div className="step-num">•</div>
+<div>
+<div className="step-title">Blocking and removal</div>
+<div className="step-desc">You can block clients from booking and delete client records. Blocking records the reason and timestamp for your reference.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div className="content-section">
+<h2 className="section-heading">Account security</h2>
+<p className="body-text">OVIAH uses secure session management powered by Supabase. Authentication supports SSO with RS256 JWT tokens for enterprise and platform integrations.</p>
+<p className="body-text">Your dashboard is protected by authentication — no one can access your business data, client list, or calendar without logging into your account.</p>
+
+<div className="tip-box">
+<div className="tip-icon">Tip</div>
+<div className="tip-text">Use a strong, unique password for your OVIAH account and don't share your login credentials. If you suspect unauthorized access, change your password immediately and contact <strong>support@oviah.io</strong>.</div>
+</div>
+</div>
+
+<div className="content-section">
+<h2 className="section-heading">Data you control</h2>
+<p className="body-text">You can export your client list at any time from the Clients tab. Revenue and booking data can be exported as CSV from the Reports tab. Your data belongs to you — OVIAH is the platform, not the owner of your business information.</p>
+</div>

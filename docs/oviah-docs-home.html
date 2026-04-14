@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OVIAH Help Center</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --charcoal: #1E1E24;
+  --lavender: #C9B8D8;
+  --gold-green: #B5C49A;
+  --apricot: #F7EDE2;
+  --muted: #3d3d45;
+  --border: rgba(30,30,36,0.1);
+}
+
+body {
+  background: #e8e0d8;
+  font-family: Georgia, 'Times New Roman', serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── NAV ── */
+.topnav {
+  background: var(--charcoal);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.topnav-logo {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.28em;
+  color: var(--lavender);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.topnav-links { display: flex; align-items: center; gap: 28px; }
+.topnav-links a {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(247,237,226,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.topnav-links a:hover { color: var(--apricot); }
+.topnav-links a.active { color: var(--lavender); }
+.accent-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--lavender) 0%, var(--gold-green) 100%);
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--charcoal);
+  padding: 64px 40px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,184,216,0.08);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(181,196,154,0.07);
+}
+.hero-eyebrow {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 18px;
+  opacity: 0.8;
+}
+.hero-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: normal;
+  font-style: italic;
+  color: var(--apricot);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.hero-title em { font-style: normal; color: var(--gold-green); }
+.hero-sub {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 15px;
+  color: rgba(201,184,216,0.7);
+  margin-bottom: 40px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+.search-wrap { max-width: 520px; margin: 0 auto; position: relative; z-index: 2; }
+.search-box {
+  background: rgba(247,237,226,0.07);
+  border: 1px solid rgba(201,184,216,0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  gap: 12px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.search-box:focus-within {
+  background: rgba(247,237,226,0.11);
+  border-color: rgba(201,184,216,0.45);
+}
+.search-icon { color: rgba(247,237,226,0.3); font-size: 15px; flex-shrink: 0; }
+.search-box input {
+  border: none;
+  background: transparent;
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  color: var(--apricot);
+  outline: none;
+  width: 100%;
+}
+.search-box input::placeholder { color: rgba(247,237,226,0.3); }
+.search-hint {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: rgba(247,237,226,0.2);
+  margin-top: 12px;
+  text-align: center;
+}
+.search-hint span {
+  color: rgba(201,184,216,0.4);
+  background: rgba(201,184,216,0.08);
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin: 0 2px;
+}
+
+/* ── PAGE BODY ── */
+.page-body {
+  max-width: 1060px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 56px 24px 80px;
+}
+.section-label {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* ── CATEGORY CARDS ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 56px;
+}
+.card {
+  background: var(--apricot);
+  border-radius: 4px;
+  padding: 26px 26px 22px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--lavender), var(--gold-green));
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(30,30,36,0.1);
+  border-color: rgba(201,184,216,0.4);
+}
+.card:hover::after { opacity: 1; }
+
+/* Top row: icon + count */
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.card-icon {
+  width: 36px; height: 36px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+.card-icon.lav  { background: rgba(201,184,216,0.3); color: #7a5e9a; }
+.card-icon.grn  { background: rgba(181,196,154,0.3); color: #5a7840; }
+.card-icon.org  { background: rgba(210,170,130,0.25); color: #9a6840; }
+
+.card-count {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #bbb;
+}
+
+/* Title + desc */
+.card-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--charcoal);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.card-desc {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: #999;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+/* Article links — subtle dots, no white bar */
+.card-articles { display: flex; flex-direction: column; }
+.card-article-link {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-top: 1px solid rgba(30,30,36,0.07);
+  transition: color 0.15s;
+}
+.card-article-link:first-child { border-top: none; }
+.card-article-link:hover { color: var(--charcoal); }
+.dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+.dot.lav { background: var(--lavender); }
+.dot.grn { background: var(--gold-green); }
+.dot.org { background: #c9a07a; }
+
+/* ── POPULAR ARTICLES ── */
+.popular-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 56px;
+}
+.article-row {
+  background: var(--apricot);
+  border-radius: 4px;
+  padding: 18px 22px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: all 0.15s;
+}
+.article-row:hover {
+  border-color: rgba(201,184,216,0.45);
+  transform: translateX(3px);
+}
+.article-row-left { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.article-row-cat {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  background: var(--charcoal);
+  padding: 3px 8px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.article-row-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--charcoal);
+  font-weight: normal;
+  line-height: 1.4;
+}
+.article-row-arrow {
+  color: rgba(201,184,216,0.4);
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: color 0.15s, transform 0.15s;
+}
+.article-row:hover .article-row-arrow { color: var(--lavender); transform: translateX(2px); }
+
+/* ── CONTACT BANNER ── */
+.contact-banner {
+  background: var(--charcoal);
+  border-radius: 4px;
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.contact-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,184,216,0.1);
+}
+.contact-banner-eyebrow {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+.contact-banner-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--apricot);
+  font-weight: normal;
+  margin-bottom: 6px;
+}
+.contact-banner-sub {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  color: rgba(201,184,216,0.6);
+  font-weight: normal;
+}
+.contact-btn {
+  background: var(--apricot);
+  color: var(--charcoal);
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 36px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.contact-btn:hover { background: var(--lavender); }
+
+/* ── FOOTER ── */
+.page-footer {
+  background: var(--charcoal);
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.footer-logo {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.38em;
+  color: rgba(247,237,226,0.25);
+  text-transform: uppercase;
+}
+.footer-links {
+  font-family: 'Century Gothic', Century, Futura, sans-serif;
+  font-size: 10px;
+  color: rgba(247,237,226,0.4);
+  letter-spacing: 0.08em;
+  display: flex;
+  gap: 20px;
+}
+.footer-links a { color: rgba(247,237,226,0.4); text-decoration: none; }
+.footer-links a:hover { color: var(--lavender); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .topnav-links { display: none; }
+}
+@media (max-width: 600px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .popular-grid { grid-template-columns: 1fr; }
+  .contact-banner { flex-direction: column; align-items: flex-start; }
+  .hero { padding: 48px 24px 56px; }
+  .page-body { padding: 40px 20px 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a href="#" class="topnav-logo">OVIAH</a>
+  <div class="topnav-links">
+    <a href="#" class="active">Help Center</a>
+    <a href="#">Blog</a>
+    <a href="#">Developers</a>
+    <a href="#">Log In</a>
+  </div>
+</nav>
+<div class="accent-bar"></div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Help Center</div>
+  <h1 class="hero-title">How can we <em>help you?</em></h1>
+  <p class="hero-sub">Everything you need to run your business — answers, guides, and step-by-step walkthroughs.</p>
+  <div class="search-wrap">
+    <div class="search-box">
+      <span class="search-icon">&#9906;</span>
+      <input type="text" placeholder="Search for anything — payments, bookings, profile...">
+    </div>
+    <div class="search-hint">Try <span>connect stripe</span> or <span>add a service</span></div>
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <div class="section-label">Browse by topic</div>
+  <div class="cards-grid">
+
+    <a href="#" class="card">
+      <div class="card-top">
+        <div class="card-icon lav">✦</div>
+        <span class="card-count">6 articles</span>
+      </div>
+      <div class="card-title">Getting Started</div>
+      <div class="card-desc">New to OVIAH? Start here — setup, your booking link, and everything before your first client.</div>
+      <div class="card-articles">
+        <a href="#" class="card-article-link"><span class="dot lav"></span>Account setup guide</a>
+        <a href="#" class="card-article-link"><span class="dot lav"></span>Your booking link explained</a>
+        <a href="#" class="card-article-link"><span class="dot lav"></span>Adding your services</a>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-top">
+        <div class="card-icon grn">◈</div>
+        <span class="card-count">8 articles</span>
+      </div>
+      <div class="card-title">Payments</div>
+      <div class="card-desc">Connect OVIAH Pay, collect deposits, manage payouts, and handle refunds with confidence.</div>
+      <div class="card-articles">
+        <a href="#" class="card-article-link"><span class="dot grn"></span>Connecting OVIAH Pay</a>
+        <a href="#" class="card-article-link"><span class="dot grn"></span>Setting up deposits</a>
+        <a href="#" class="card-article-link"><span class="dot grn"></span>Payouts & fees explained</a>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-top">
+        <div class="card-icon org">◻</div>
+        <span class="card-count">7 articles</span>
+      </div>
+      <div class="card-title">Bookings & Calendar</div>
+      <div class="card-desc">Manage your schedule, block time off, set availability, and protect against no-shows.</div>
+      <div class="card-articles">
+        <a href="#" class="card-article-link"><span class="dot org"></span>Managing your calendar</a>
+        <a href="#" class="card-article-link"><span class="dot org"></span>No-show protection</a>
+        <a href="#" class="card-article-link"><span class="dot org"></span>Automated client reminders</a>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-top">
+        <div class="card-icon lav">◯</div>
+        <span class="card-count">5 articles</span>
+      </div>
+      <div class="card-title">Your Profile & Page</div>
+      <div class="card-desc">Customize your booking page so it looks and feels like your brand — photos, colors, bio.</div>
+      <div class="card-articles">
+        <a href="#" class="card-article-link"><span class="dot lav"></span>Personalizing your booking page</a>
+        <a href="#" class="card-article-link"><span class="dot lav"></span>Adding a profile photo</a>
+        <a href="#" class="card-article-link"><span class="dot lav"></span>Brand colors & fonts</a>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-top">
+        <div class="card-icon grn">◇</div>
+        <span class="card-count">5 articles</span>
+      </div>
+      <div class="card-title">Clients</div>
+      <div class="card-desc">Build your client list, view booking history, add notes, and import existing contacts.</div>
+      <div class="card-articles">
+        <a href="#" class="card-article-link"><span class="dot grn"></span>Client profiles overview</a>
+        <a href="#" class="card-article-link"><span class="dot grn"></span>Importing your client list</a>
+        <a href="#" class="card-article-link"><span class="dot grn"></span>Notes & appointment history</a>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-top">
+        <div class="card-icon org">⬡</div>
+        <span class="card-count">4 articles</span>
+      </div>
+      <div class="card-title">Account & Billing</div>
+      <div class="card-desc">Manage your subscription, update payment info, and adjust notification preferences.</div>
+      <div class="card-articles">
+        <a href="#" class="card-article-link"><span class="dot org"></span>Plans & pricing</a>
+        <a href="#" class="card-article-link"><span class="dot org"></span>Updating billing info</a>
+        <a href="#" class="card-article-link"><span class="dot org"></span>Notification settings</a>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- POPULAR ARTICLES -->
+  <div class="section-label">Most helpful</div>
+  <div class="popular-grid">
+    <a href="#" class="article-row">
+      <div class="article-row-left">
+        <span class="article-row-cat">Payments</span>
+        <span class="article-row-title">How to connect OVIAH Pay to your account</span>
+      </div>
+      <span class="article-row-arrow">→</span>
+    </a>
+    <a href="#" class="article-row">
+      <div class="article-row-left">
+        <span class="article-row-cat">Getting Started</span>
+        <span class="article-row-title">Setting up your account for the first time</span>
+      </div>
+      <span class="article-row-arrow">→</span>
+    </a>
+    <a href="#" class="article-row">
+      <div class="article-row-left">
+        <span class="article-row-cat">Bookings</span>
+        <span class="article-row-title">Requiring a deposit to reduce no-shows</span>
+      </div>
+      <span class="article-row-arrow">→</span>
+    </a>
+    <a href="#" class="article-row">
+      <div class="article-row-left">
+        <span class="article-row-cat">Profile</span>
+        <span class="article-row-title">Sharing your booking link on Instagram</span>
+      </div>
+      <span class="article-row-arrow">→</span>
+    </a>
+    <a href="#" class="article-row">
+      <div class="article-row-left">
+        <span class="article-row-cat">Payments</span>
+        <span class="article-row-title">When do I get paid? Understanding payouts</span>
+      </div>
+      <span class="article-row-arrow">→</span>
+    </a>
+    <a href="#" class="article-row">
+      <div class="article-row-left">
+        <span class="article-row-cat">Clients</span>
+        <span class="article-row-title">Importing your existing client list into OVIAH</span>
+      </div>
+      <span class="article-row-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- CONTACT BANNER -->
+  <div class="contact-banner">
+    <div>
+      <div class="contact-banner-eyebrow">Still need help?</div>
+      <div class="contact-banner-title">We're here for you.</div>
+      <div class="contact-banner-sub">Reach the OVIAH team — we respond within one business day.</div>
+    </div>
+    <a href="mailto:support@oviah.io" class="contact-btn">Contact Support</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="accent-bar"></div>
+<footer class="page-footer">
+  <div class="footer-logo">OVIAH</div>
+  <div class="footer-links">
+    <a href="#">Help Center</a>
+    <a href="#">Blog</a>
+    <a href="#">Developers</a>
+    <a href="#">support@oviah.io</a>
+  </div>
+</footer>
+
+</body>
+</html>
