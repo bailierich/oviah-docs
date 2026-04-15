@@ -3,8 +3,24 @@ import DocsNav from '@/components/DocsNav';
 import DocsFooter from '@/components/DocsFooter';
 
 export const metadata = {
-  title: 'OVIAH Help Center',
-  description: 'Everything you need to run your business — answers, guides, and step-by-step walkthroughs.',
+  metadataBase: new URL('https://docs.oviah.com'),
+  title: {
+    default: 'OVIAH Help Center',
+    template: '%s | OVIAH Help Center',
+  },
+  description: 'Learn how to manage your beauty business with OVIAH — bookings, payments, clients, and more.',
+  openGraph: {
+    type: 'website',
+    siteName: 'OVIAH',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
