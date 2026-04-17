@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import { ArticleSchema } from '@/components/ArticleSchema';
+import { FAQSchema } from '@/components/FAQSchema';
 
 const sidebarData = [
   {
@@ -55,11 +57,20 @@ function mdxComponents() {
   };
 }
 
-export default function ArticlePage({ frontmatter, content }) {
+export default function ArticlePage({ frontmatter, content, category, slug }) {
   const currentPath = `/help/${frontmatter.slug ? frontmatter.category?.toLowerCase().replace(/\s+/g, '-') + '/' + frontmatter.slug : ''}`;
 
   return (
     <div className="layout">
+      <ArticleSchema
+        title={frontmatter.title}
+        description={frontmatter.description}
+        category={category}
+        slug={slug}
+      />
+      {Array.isArray(frontmatter.faq) && frontmatter.faq.length > 0 && (
+        <FAQSchema questions={frontmatter.faq} />
+      )}
       <aside className="sidebar">
         {sidebarData.map((section) => (
           <div key={section.label} className="sidebar-section">

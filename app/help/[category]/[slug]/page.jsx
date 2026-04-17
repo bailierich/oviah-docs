@@ -18,5 +18,5 @@ export default async function HelpArticlePage({ params }) {
 
   if (!article) notFound();
 
-  return <ArticlePage frontmatter={article.frontmatter} content={article.content} />;
+  return <ArticlePage frontmatter={article.frontmatter} content={article.content} category={category} slug={slug} />;
 }
