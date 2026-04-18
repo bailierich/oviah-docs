@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 01-04-PLAN.md — llms.txt + llms-full.txt AEO endpoints
-last_updated: "2026-04-18T00:21:34.341Z"
+status: verifying
+stopped_at: "Completed 01-05 Tasks 1-3; stopped at Task 4 checkpoint:human-verify"
+last_updated: "2026-04-18T00:32:04.813Z"
 last_activity: 2026-04-18
 progress:
   total_phases: 1
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 5
-  completed_plans: 4
-  percent: 80
+  completed_plans: 5
+  percent: 100
 ---
 
 # Project State
@@ -27,7 +27,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 
 Phase: 01 (docs-seo-aeo) — EXECUTING
 Plan: 5 of 5
-Status: Ready to execute
+Status: Phase complete — ready for verification
 Last activity: 2026-04-18
 
 Progress: [░░░░░░░░░░] 0%
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01 P02 | 1020 | 2 tasks | 2 files |
 | Phase 01 P03 | 20509 | 3 tasks | 4 files |
 | Phase 01 P04 | 285 | 3 tasks | 3 files |
+| Phase 01 P05 | 20 minutes | 3 tasks | 23 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,8 @@ Recent decisions affecting current work:
 - [Phase 01]: FAQSchema dormant at plan completion — rendering plumbing live but no article has faq frontmatter yet
 - [Phase 01]: mdxBodyToText uses hand-rolled regex (no new deps) for closed set of JSX wrapper patterns in content/help/**
 - [Phase 01]: llms-full.txt serves a.bodyText (cleaned plaintext) not a.content (raw MDX) per user decision D-10
+- [Phase 01]: H1 is rendered from frontmatter.title by ArticlePage.jsx — authors must not add # heading to MDX body (documented in AUTHOR-GUIDELINES.md)
+- [Phase 01]: All 22 article descriptions rewritten to answer-shaped form: action verb + concrete UI path + outcome; updatedAt bumped to 2026-04-13
 
 ### Roadmap Evolution
 
@@ -90,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-18T00:21:34.337Z
-Stopped at: Completed 01-04-PLAN.md — llms.txt + llms-full.txt AEO endpoints
+Last session: 2026-04-18T00:32:04.808Z
+Stopped at: Completed 01-05 Tasks 1-3; stopped at Task 4 checkpoint:human-verify
 Resume file: None
