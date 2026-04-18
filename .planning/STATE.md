@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-02-PLAN.md — sitemap + robots discovery files
-last_updated: "2026-04-17T18:23:08.713Z"
+stopped_at: Completed 01-03-PLAN.md — JSON-LD Article + FAQPage schemas
+last_updated: "2026-04-18T00:13:40.485Z"
 last_activity: 2026-04-17
 progress:
   total_phases: 1
   completed_phases: 0
   total_plans: 5
-  completed_plans: 2
-  percent: 40
+  completed_plans: 3
+  percent: 60
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-13)
 ## Current Position
 
 Phase: 01 (docs-seo-aeo) — EXECUTING
-Plan: 3 of 5
+Plan: 4 of 5
 Status: Ready to execute
 Last activity: 2026-04-17
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01 P01 | 153067s | 4 tasks | 27 files |
 | Phase 01 P02 | 1020 | 2 tasks | 2 files |
+| Phase 01 P03 | 20509 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,8 @@ Recent decisions affecting current work:
 - [Phase 01]: updatedAt normalized to ISO 2026-03-01 across all 22 articles; prebuild script enforces it at build time
 - [Phase 01]: Sitemap URLs use /help/{category}/{slug} — both category and slug required for correct routing
 - [Phase 01]: sitemap.js/robots.js are .js not .ts — project uses .jsx/.js for app code
+- [Phase 01]: URL pattern /help/{category}/{slug} inherited for ArticleSchema — takes both category and slug props
+- [Phase 01]: FAQSchema dormant at plan completion — rendering plumbing live but no article has faq frontmatter yet
 
 ### Roadmap Evolution
 
@@ -84,6 +87,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-17T18:23:08.708Z
-Stopped at: Completed 01-02-PLAN.md — sitemap + robots discovery files
+Last session: 2026-04-18T00:13:40.006Z
+Stopped at: Completed 01-03-PLAN.md — JSON-LD Article + FAQPage schemas
 Resume file: None
