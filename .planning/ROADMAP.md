@@ -34,7 +34,7 @@ Plans:
 - [x] 01-01-PLAN.md — Metadata foundation: root metadata export, generateMetadata, ISO updatedAt sweep (SC-1, SC-2)
 - [x] 01-02-PLAN.md — Discovery files: app/sitemap.js + app/robots.js (SC-3, SC-4)
 - [x] 01-03-PLAN.md — JSON-LD schemas: ArticleSchema + FAQSchema components wired into ArticlePage (SC-5)
-- [ ] 01-04-PLAN.md — AI discovery endpoints: llms.txt + llms-full.txt route handlers + extended loader (SC-6)
+- [x] 01-04-PLAN.md — AI discovery endpoints: llms.txt + llms-full.txt route handlers + extended loader (SC-6)
 - [ ] 01-05-PLAN.md — Answer-shaped content sweep + author guidelines + manual index submission (SC-7, D-08, D-13, D-14)
 
 ## Progress
@@ -44,4 +44,4 @@ Phases execute in numeric order: 1
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Docs SEO + AEO Optimization | 3/5 | In Progress|  |
+| 1. Docs SEO + AEO Optimization | 4/5 | In Progress|  |
