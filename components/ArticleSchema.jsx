@@ -8,7 +8,7 @@ export function ArticleSchema({ title, description, category, slug }) {
           '@type': 'Article',
           headline: title,
           description,
-          url: `https://docs.oviah.com/help/${category}/${slug}`,
+          url: `https://docs.oviah.io/help/${category}/${slug}`,
           publisher: {
             '@type': 'Organization',
             name: 'OVIAH',

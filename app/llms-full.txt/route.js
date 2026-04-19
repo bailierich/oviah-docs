@@ -14,7 +14,7 @@ export async function GET() {
   ];
 
   const articleBlocks = articles.map((a) => {
-    const url = `https://docs.oviah.com/help/${a.category}/${a.slug}`;
+    const url = `https://docs.oviah.io/help/${a.category}/${a.slug}`;
     return [
       `### ${a.frontmatter.title}`,
       url,

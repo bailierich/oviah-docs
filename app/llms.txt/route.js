@@ -13,7 +13,7 @@ export async function GET() {
     '',
     ...articles.map(
       (a) =>
-        `- [${a.frontmatter.title}](https://docs.oviah.com/help/${a.category}/${a.slug}): ${a.frontmatter.description}`
+        `- [${a.frontmatter.title}](https://docs.oviah.io/help/${a.category}/${a.slug}): ${a.frontmatter.description}`
     ),
   ];
 

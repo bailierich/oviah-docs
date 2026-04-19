@@ -3,7 +3,7 @@ import DocsNav from '@/components/DocsNav';
 import DocsFooter from '@/components/DocsFooter';
 
 export const metadata = {
-  metadataBase: new URL('https://docs.oviah.com'),
+  metadataBase: new URL('https://docs.oviah.io'),
   title: {
     default: 'OVIAH Help Center',
     template: '%s | OVIAH Help Center',

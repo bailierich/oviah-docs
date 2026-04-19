@@ -1,6 +1,6 @@
 # OVIAH Help Center — Author Guidelines
 
-These rules exist so docs.oviah.com ranks in Google AND surfaces in AI answer engines (ChatGPT, Perplexity, Google AI Overviews, Copilot). Every rule maps to a specific behavior of those systems.
+These rules exist so docs.oviah.io ranks in Google AND surfaces in AI answer engines (ChatGPT, Perplexity, Google AI Overviews, Copilot). Every rule maps to a specific behavior of those systems.
 
 ## Frontmatter (required on every article)
 
@@ -47,7 +47,7 @@ Section headings inside the body should be `<h2>` (currently rendered via raw JS
 ✅ `connecting-oviah-pay`, `block-time-off`, `client-reminders`
 ❌ `payments-1`, `article-2`, `untitled`
 
-The slug becomes the URL: `https://docs.oviah.com/help/{category}/{slug}`. Both Google and AI engines use the URL as a relevance signal — descriptive slugs outrank cryptic ones.
+The slug becomes the URL: `https://docs.oviah.io/help/{category}/{slug}`. Both Google and AI engines use the URL as a relevance signal — descriptive slugs outrank cryptic ones.
 
 ## Article Intros — direct answers, not preambles
 
