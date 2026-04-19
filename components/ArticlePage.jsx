@@ -103,7 +103,7 @@ export default function ArticlePage({ frontmatter, content, category, slug }) {
         <div className="article-tag">{frontmatter.category}</div>
         <h1 className="article-title">{frontmatter.title}</h1>
         <div className="article-meta">
-          {frontmatter.readTime} <span>&middot;</span> Updated {frontmatter.updatedAt} <span>&middot;</span> Written by the OVIAH Team
+          {frontmatter.readTime} <span>&middot;</span> Updated {frontmatter.updatedAt instanceof Date ? frontmatter.updatedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : frontmatter.updatedAt} <span>&middot;</span> Written by the OVIAH Team
         </div>
 
         <div className="intro-box">
